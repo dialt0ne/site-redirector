@@ -1,0 +1,30 @@
+<HTML><HEAD>
+<TITLE>Redirecting...</TITLE>
+</HEAD><BODY>
+Redirecting to the
+<a id="quickLink" href="http://new.example.com">new site</a>
+in <span id="timer"></span>...
+
+<SCRIPT TYPE="text/javascript">//<![CDATA[
+var newHostname = "http://new.example.com"
+var count=8;
+document.getElementById("timer").innerHTML=count + " secs";
+var currentUri = window.location.pathname;
+var newUrl = newHostname + currentUri;
+document.getElementById("quickLink").href = newUrl;
+var counter=setInterval(timer, 1000);
+function timer()
+{
+  count=count-1;
+  if (count <= 0)
+  {
+     clearInterval(counter);
+     window.location.replace(newUrl);
+     return;
+  }
+  document.getElementById("timer").innerHTML=count + " secs";
+}
+//]]></SCRIPT>
+
+</BODY></HTML>
+
